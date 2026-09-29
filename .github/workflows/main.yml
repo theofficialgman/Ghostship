@@ -362,7 +362,9 @@ jobs:
           submodules: recursive
           fetch-depth: 0 # full history so the libultraship submodule gitlink resolves
       - name: Update machine
-        run: sudo apt update
+        run: |
+          sudo add-apt-repository -y ppa:theofficialgman/gpu-tools
+          sudo apt update
       - name: Install dependencies
         run: sudo apt-get install gcc g++ git cmake ninja-build lsb-release libsdl2-dev libpng-dev libsdl2-net-dev libzip-dev zipcmp zipmerge ziptool nlohmann-json3-dev libtinyxml2-dev libspdlog-dev libboost-dev libopengl-dev libogg-dev libvorbis-dev libmbedtls-dev libvulkan-dev libshaderc-dev glslang-dev spirv-tools
       - name: ccache
